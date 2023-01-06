@@ -63,9 +63,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ColorShop_grace.wsgi.application'
 
-# mysite/settings.py
 # Daphne
 ASGI_APPLICATION = "ColorShop_grace.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 
 # Database
